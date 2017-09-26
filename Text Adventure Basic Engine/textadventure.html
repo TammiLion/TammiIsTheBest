@@ -2,51 +2,24 @@
 <html>
 <body>
 
-<h2>My First Web Page</h2>
-<p>My First Paragraph.</p>
+<p>Type some text and press enter.</p>
 
 <p id="demo"></p>
 
-<p id="demo2"></p>
-
-<p id="demo3"></p>
-
-<p id="demo4"></p>
-
-<p id="demo5"></p>
-
-<script>
-document.getElementById("demo").innerHTML = 5 + 6;
-
-document.getElementById("demo2").innerHTML = "More text on the screen!";
-
-var person = prompt("Please enter your name", "Harry Potter");
-
-if (person != null) {
-    document.getElementById("demo3").innerHTML =
-    "Hello " + person + "!";
-
-    var age = prompt("Please enter your age", "18");
-
-    if (age != null) {
-        document.getElementById("demo4").innerHTML =
-        "Wow, already " + age + " years old!";
-    }
-}
-</script>
-
 <form action="#">
-    <input type="text" id="something" name="txt" onkeypress="handle(event)" />
+    <input type="text" style="outline:none;border:0;width:1000px;" id="something" name="txt" onkeypress="handle(event)" />
 </form>
 
 <script>
+
+document.getElementById("something").focus();
 
     function handle(e){
         if(e.keyCode === 13){
             e.preventDefault(); // Ensure it is only this code that rusn
 
             var text=document.getElementById('something').value;
-            document.getElementById("demo5").innerHTML = text;
+            document.getElementById("demo").innerHTML = text;
                   }
     }
 </script>
