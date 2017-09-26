@@ -19,6 +19,7 @@ document.getElementById("something").focus();
             e.preventDefault(); // Ensure it is only this code that rusn
 
             var text=document.getElementById('something').value;
+            document.getElementById('something').value = "";
             document.getElementById("demo").innerHTML = text;
                   }
     }
