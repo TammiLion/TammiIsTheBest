@@ -30,9 +30,9 @@ function story() {
   if(index == 0) {
     addText("First line of story")
   } else if(index == 1) {
-    addText("Second line of story")
+    addText("Second line of story", "lightblue")
   } else if (index == 2) {
-    addText("Third line of story")
+    addText("Third line of story", "red")
   }
   index++
 }
@@ -46,10 +46,14 @@ function respond(text) {
   }
 }
 
-function addText(text) {
+function addText(text, color) {
+  if(color == null) {
+    color = "black"
+  }
   var para = document.createElement("P");
   var t = document.createTextNode(text);
   para.appendChild(t);
+  para.style.color = color;
   document.getElementById("demo").appendChild(para);
 }
 
