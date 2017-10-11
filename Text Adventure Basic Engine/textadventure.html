@@ -12,6 +12,7 @@
 
 <script>
 
+var index = 0;
 document.getElementById("something").focus();
 
 function handle(e){
@@ -19,13 +20,41 @@ function handle(e){
         e.preventDefault(); // Ensure it is only this code that runs
 
         var text = document.getElementById('something').value;
-        document.getElementById('something').value = "";
-
-        var para = document.createElement("P");
-        var t = document.createTextNode(text);
-        para.appendChild(t);
-        document.getElementById("demo").appendChild(para);
+        //respond(text)
+        story()
+        clear()
     }
+}
+
+function story() {
+  if(index == 0) {
+    addText("First line of story")
+  } else if(index == 1) {
+    addText("Second line of story")
+  } else if (index == 2) {
+    addText("Third line of story")
+  }
+  index++
+}
+
+function respond(text) {
+  if(text === "hoi") {
+    addText("you: " + text)
+    addText("computer: hallo")
+  } else {
+    addText("computer: I don't understand -> " + text + ", sorry")
+  }
+}
+
+function addText(text) {
+  var para = document.createElement("P");
+  var t = document.createTextNode(text);
+  para.appendChild(t);
+  document.getElementById("demo").appendChild(para);
+}
+
+function clear() {
+  document.getElementById('something').value = "";
 }
 </script>
 

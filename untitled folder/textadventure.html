@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<p>Type some text and press enter.</p>
+
+<p id="demo"></p>
+
+<form action="#">
+    <input type="text" style="outline:none;border:0;width:1000px;" id="something" name="txt" onkeypress="handle(event)" />
+</form>
+
+<script>
+
+document.getElementById("something").focus();
+
+    function handle(e){
+        if(e.keyCode === 13){
+            e.preventDefault(); // Ensure it is only this code that rusn
+
+            var text=document.getElementById('something').value;
+            document.getElementById('something').value = "";
+
+            var para = document.createElement("P");
+    var t = document.createTextNode(text);
+    para.appendChild(t);
+    document.getElementById("demo").appendChild(para);
+
+            //document.getElementById("demo").innerHTML = text;
+                  }
+    }
+</script>
+
+</body>
+</html>
